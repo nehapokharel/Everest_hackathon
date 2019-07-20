@@ -1,0 +1,11 @@
+.idea/*
+*~
+.pyc/*
+__pycache__
+yatra_env
+*.pyc
+db.sqlite3
+/static
+.DS_Store
+
+*/__pycache__/*
