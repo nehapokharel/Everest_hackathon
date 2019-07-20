@@ -1,28 +1,22 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
-from django.db import models
+from django.contrib.gis.db import models
 from django.contrib.auth.models import User, Group
 
 # Create your models here.
 # Client Model
 
-
-class Location(models.Model):
-    long = models.DecimalField(max_digits=9, decimal_places=6)
-    lat = models.DecimalField(max_digits=9, decimal_places=6)
-
-
-class Client(Location):
-
+class Client(models.Model):
     full_name = models.CharField(max_length=500)
     contact_no = models.CharField(max_length=500)
-    address = models.CharField(max_length=500)
     email = models.EmailField(null=True, blank=True)
     image = models.ImageField(
         upload_to='team/admin/', blank=True, null=True)
+    location = models.PointField()
+    address = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
 
 
-class Ambulance(Location):
+class Ambulance(models.Model):
 
     Organization_Name = models.CharField(max_length=500)
